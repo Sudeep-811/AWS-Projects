@@ -1,1 +1,27 @@
 
+Project Title: “ImageIntel with AWS Rekognition”
+
+Tagline: Automated Image Analysis Pipeline using AWS Rekognition, Lambda, and DynamoDB.
+
+Summary:
+
+ImageIntel automatically analyzes images uploaded to an AWS S3 bucket using AWS Rekognition’s label detection, celebrity recognition, and face detection APIs. The results are then stored in DynamoDB, enabling you to easily track and access insights for each image. This project showcases a seamless, serverless solution for intelligent image processing.
+
+Key Technologies Used:
+
+1-AWS S3: For easy image storage and triggering automated processes.
+2-AWS Lambda: For serverless image processing without managing infrastructure.
+3-Amazon Rekognition: For intelligent image analysis, detecting labels, faces, and even celebrities.
+4-DynamoDB: To store results in a fast and scalable database.
+
+The Architecture:
+
+A simple architecture diagram showing how each component works together-
+
+AWS S3: For easy image storage and triggering automated processes.
+AWS Lambda: For serverless image processing without managing infrastructure.
+Amazon Rekognition: For intelligent image analysis, detecting labels, faces, and even celebrities.
+DynamoDB: To store results in a fast and scalable database.
+
+
+
