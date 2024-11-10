@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ImageIntel with AWS Rekognition</title>
-
   <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; }
+        <body>  { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4; color: #333; }
         .container { width: 80%; margin: auto; overflow: hidden; }
         h1, h2, h3 { color: #333; }
         h1 { text-align: center; padding: 20px 0; }
         .section { padding: 20px; background: #fff; margin-bottom: 20px; }
         code { background: #eee; padding: 2px 6px; font-size: 90%; color: #d14; }
         .architecture img { width: 100%; height: auto; }
+      </body>
     </style>
 </head>
 <body>
