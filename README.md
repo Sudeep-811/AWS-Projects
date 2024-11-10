@@ -1,2 +1,0 @@
-# AWS-Projects
-Welcome to my AWS Projects repository! This collection brings together a variety of cloud solutions, automation scripts, and hands-on projects that showcase the powerful capabilities of Amazon Web Services (AWS). Each project is designed with clear documentation, step-by-step setup instructions, and sample code, so you can easily follow along and build cloud-based solutions yourself.
