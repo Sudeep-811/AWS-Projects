@@ -151,6 +151,111 @@ This Lambda function is designed to automatically analyze images that are upload
 
 3. **Rekognition API Calls**: The Lambda function interacts with Rekognition to extract information about the image, such as objects, faces, and celebrity recognition. After gathering these results, it stores them in DynamoDB so that the data is easily accessible later on.
 
+4. Below is the LambdaFn code that I have used-
+
+
+import json
+import boto3
+
+s3_client = boto3.client('s3')
+rekognition_client = boto3.client('rekognition')
+dynamodb_client = boto3.client('dynamodb')
+
+def lambda_handler(event, context):
+    bucket_name = 'testbucket811' # Replace with your actual bucket name
+    
+    try:
+        # Step 1: List all objects in the S3 bucket
+        objects = s3_client.list_objects_v2(Bucket=bucket_name)
+        if 'Contents' not in objects:
+            print(f"No objects found in the bucket {bucket_name}")
+            return {
+                'statusCode': 404,
+                'body': json.dumps(f"No objects found in bucket {bucket_name}")
+            }
+            
+       # Process each object in the bucket
+        for obj in objects['Contents']:
+            object_key = obj['Key']
+            print(f"Processing {object_key}")
+            
+            # Step 2: Detect labels (general objects)
+            try:
+                label_response = rekognition_client.detect_labels(
+                    Image={'S3Object': {'Bucket': bucket_name, 'Name': object_key}},
+                    MaxLabels=10,
+                    MinConfidence=75
+                )
+                labels = [label['Name'] for label in label_response['Labels']]
+                print(f"Labels for {object_key}: {labels}")
+            except Exception as e:
+                print(f"Error detecting labels for {object_key}: {e}")
+                continue  # Skip to the next object
+            
+            # Step 3: Detect faces (if any faces are present in the image)
+            try:
+                face_response = rekognition_client.detect_faces(
+                    Image={'S3Object': {'Bucket': bucket_name, 'Name': object_key}},
+                    Attributes=['ALL']
+                )
+                faces = []
+                for face in face_response['FaceDetails']:
+                    faces.append({
+                        'Confidence': face['Confidence'],
+                        'AgeRange': face['AgeRange'],
+                        'Gender': face['Gender']['Value'],
+                        'Emotions': [emotion['Type'] for emotion in face['Emotions'] if emotion['Confidence'] > 75],
+                        'Smile': face['Smile']['Value']
+                    })
+                print(f"Faces for {object_key}: {faces}")
+            except Exception as e:
+                print(f"Error detecting faces for {object_key}: {e}")
+                continue  # Skip to the next object
+            
+            # Step 4: Recognize celebrities in the image
+            try:
+                celebrity_response = rekognition_client.recognize_celebrities(
+                    Image={'S3Object': {'Bucket': bucket_name, 'Name': object_key}}
+                )
+                celebrities = []
+                for celebrity in celebrity_response['CelebrityFaces']:
+                    celebrities.append({
+                        'Name': celebrity['Name'],
+                        'Confidence': celebrity['MatchConfidence']
+                    })
+                print(f"Celebrities for {object_key}: {celebrities}")
+            except Exception as e:
+                print(f"Error recognizing celebrities for {object_key}: {e}")
+                continue  # Skip to the next object
+            
+            # Step 5: Store the results in DynamoDB
+            try:
+                dynamodb_client.put_item(
+                    TableName='ImageResults',
+                    Item={
+                        'ImageID': {'S': object_key},
+                        'Labels': {'S': json.dumps(labels)},
+                        'Faces': {'S': json.dumps(faces)},
+                        'Celebrities': {'S': json.dumps(celebrities)}
+                    }
+                )
+                print(f"Successfully saved analysis for {object_key} to DynamoDB.")
+            except Exception as e:
+                print(f"Error saving to DynamoDB for {object_key}: {e}")
+                continue  # Skip to the next object
+        
+        return {
+            'statusCode': 200,
+            'body': json.dumps("Bucket analysis completed and results saved to DynamoDB.")
+        }
+    
+    except Exception as e:
+        print(f"Error processing bucket: {e}")
+        return {
+            'statusCode': 500,
+            'body': json.dumps(f"An error occurred while processing the bucket: {e}")
+        }
+
 ### API Usage:
 This function makes use of three Amazon Rekognition APIs to get different insights from each image:
 
