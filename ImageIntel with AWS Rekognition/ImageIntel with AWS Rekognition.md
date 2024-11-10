@@ -21,7 +21,7 @@ A simple architecture diagram showing how each component works together:
 - **DynamoDB**: To store results in a fast and scalable database.
 
      <div align="center">
-       <img src="[https://github.com/Sudeep-811/AWS-Projects/blob/ada2aa3bebdcfbe74410b8ba182a63cf3259415d/ImageIntel%20with%20AWS%20Rekognition/s3_name%26region.png](https://github.com/Sudeep-811/AWS-Projects/blob/f3717eefa51d9b5b522182275ad6565cb5209e6a/ImageIntel%20with%20AWS%20Rekognition/Imageintel%20Architecture.png?raw=true)">
+       <img src="https://github.com/Sudeep-811/AWS-Projects/blob/ec96c6ce44f36873f6e2cf2379e79801473e3bd4/ImageIntel%20with%20AWS%20Rekognition/Imageintel%20Architecture.png">
    </div>
 
 ## How It Works
