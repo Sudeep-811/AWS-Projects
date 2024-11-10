@@ -97,7 +97,7 @@ Creating a Lambda function on AWS is pretty straightforward. Here’s how to do 
 
 5. **Add a Trigger**  
    - Trigger is needed for Lambda function to automatically respond when a new file added to an S3 bucket, go to the Function overview section and click **Add trigger**.
-   - Choose a service- **S3**, select the event that should trigger the function, in our case event will be – All object create events. After this add the trigger.
+   - Choose a service- **S3**, select the event that should trigger the function, in our case event will be – `All object create events`. After this add the trigger.
 
 6. **Configure Your Function (Optional)**  
    In the **Configuration** tab, you’ll find settings for things like memory allocation and timeout limits. Adjust these depending on your function’s needs. For example, if your function will process large files, increasing the memory or timeout might help.
