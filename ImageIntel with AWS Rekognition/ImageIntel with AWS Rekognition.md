@@ -46,7 +46,7 @@ A simple architecture diagram showing how each component works together:
    - **AWS Region**: Select a region that’s close to you or your users for faster access.  
 
    <div align="center">
-       <img src="https://github.com/Sudeep-811/AWS-Projects/blob/ada2aa3bebdcfbe74410b8ba182a63cf3259415d/ImageIntel%20with%20AWS%20Rekognition/s3_name%26region.png)">
+       <img src="https://github.com/Sudeep-811/AWS-Projects/blob/ada2aa3bebdcfbe74410b8ba182a63cf3259415d/ImageIntel%20with%20AWS%20Rekognition/s3_name%26region.png">
    </div>
 
 5. **Customize Your Settings (Optional)**  
