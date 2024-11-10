@@ -153,7 +153,7 @@ This Lambda function is designed to automatically analyze images that are upload
 
 4. Below is the LambdaFn code that I have used-
 
-
+```python
 import json
 import boto3
 
@@ -162,8 +162,7 @@ rekognition_client = boto3.client('rekognition')
 dynamodb_client = boto3.client('dynamodb')
 
 def lambda_handler(event, context):
-    bucket_name = 'testbucket811' # Replace with your actual bucket name
-    
+    bucket_name = 'testbucket811'  # Replace with your actual bucket name
     try:
         # Step 1: List all objects in the S3 bucket
         objects = s3_client.list_objects_v2(Bucket=bucket_name)
@@ -173,12 +172,12 @@ def lambda_handler(event, context):
                 'statusCode': 404,
                 'body': json.dumps(f"No objects found in bucket {bucket_name}")
             }
-            
-       # Process each object in the bucket
+
+        # Process each object in the bucket
         for obj in objects['Contents']:
             object_key = obj['Key']
             print(f"Processing {object_key}")
-            
+
             # Step 2: Detect labels (general objects)
             try:
                 label_response = rekognition_client.detect_labels(
@@ -191,7 +190,7 @@ def lambda_handler(event, context):
             except Exception as e:
                 print(f"Error detecting labels for {object_key}: {e}")
                 continue  # Skip to the next object
-            
+
             # Step 3: Detect faces (if any faces are present in the image)
             try:
                 face_response = rekognition_client.detect_faces(
@@ -211,7 +210,7 @@ def lambda_handler(event, context):
             except Exception as e:
                 print(f"Error detecting faces for {object_key}: {e}")
                 continue  # Skip to the next object
-            
+
             # Step 4: Recognize celebrities in the image
             try:
                 celebrity_response = rekognition_client.recognize_celebrities(
@@ -227,7 +226,7 @@ def lambda_handler(event, context):
             except Exception as e:
                 print(f"Error recognizing celebrities for {object_key}: {e}")
                 continue  # Skip to the next object
-            
+
             # Step 5: Store the results in DynamoDB
             try:
                 dynamodb_client.put_item(
@@ -243,18 +242,20 @@ def lambda_handler(event, context):
             except Exception as e:
                 print(f"Error saving to DynamoDB for {object_key}: {e}")
                 continue  # Skip to the next object
-        
+
         return {
             'statusCode': 200,
             'body': json.dumps("Bucket analysis completed and results saved to DynamoDB.")
         }
-    
+
     except Exception as e:
         print(f"Error processing bucket: {e}")
         return {
             'statusCode': 500,
             'body': json.dumps(f"An error occurred while processing the bucket: {e}")
         }
+```
+
 
 ### API Usage:
 This function makes use of three Amazon Rekognition APIs to get different insights from each image:
