@@ -79,7 +79,7 @@ Creating a Lambda function on AWS is pretty straightforward. Here’s how to do 
    - Once it is created got to the configuration column and select Permission on the left side.  
 
    <div align="center">
-       <img src="https://github.com/Sudeep-811/AWS-Projects/blob/f34c73666c3244e6e68859b0a34649eb298b2d3d/ImageIntel%20with%20AWS%20Rekognition/Lambda_Config.jpg?raw=true" alt="Lambda Config">
+       <img src="https://github.com/Sudeep-811/AWS-Projects/blob/7a59fa46a7710da7a54d9071e42786b19cf1d930/ImageIntel%20with%20AWS%20Rekognition/lambda_config.png">
    </div>
 
    - You will see a basic role is already created for the function and we will have to modify it. Click on role name and it will re-direct you to the IAM role window. From there click on **Add permissions > Attach policies**. It will open another window and you will have to select below roles from the list. [`AmazonDynamoDBFullAccess`, `AmazonRekognitionReadOnlyAccess`, `AmazonS3ReadOnlyAccess`, `AWSLambdaBasicExecutionRole`]
@@ -90,7 +90,7 @@ Creating a Lambda function on AWS is pretty straightforward. Here’s how to do 
      4. **`AWSLambdaBasicExecutionRole`**- This policy provides basic permissions required for AWS Lambda functions to execute and log to Amazon CloudWatch.  
      
      <div align="center">
-         <img src="https://github.com/Sudeep-811/AWS-Projects/blob/f34c73666c3244e6e68859b0a34649eb298b2d3d/ImageIntel%20with%20AWS%20Rekognition/Lambda_roles.jpg?raw=true" alt="Lambda Roles">
+         <img src="https://github.com/Sudeep-811/AWS-Projects/blob/7a59fa46a7710da7a54d9071e42786b19cf1d930/ImageIntel%20with%20AWS%20Rekognition/lambda_roles.png">
      </div>
 
 4. **Write Your Code in AWS Lambda Function**  
@@ -300,15 +300,15 @@ To ensure this whole architecture works as expected, testing involves verifying 
 
 1. **Upload Images**: I am going to upload a few images in my bucket, one of them is named as `Poster.jpg`.
 
-   ![Bucket Content](https://github.com/Sudeep-811/AWS-Projects/blob/6d3be0c7c623ebc90a7831ba8e785f893ced43f9/ImageIntel%20with%20AWS%20Rekognition/bucketcontent.jpg)
+   ![Bucket Content](https://github.com/Sudeep-811/AWS-Projects/blob/7a59fa46a7710da7a54d9071e42786b19cf1d930/ImageIntel%20with%20AWS%20Rekognition/bucket_content.png)
 
 2. **Check CloudWatch Logs**: Once the files are uploaded, we can check the CloudWatch logs to see if everything is working as expected.
 
-   ![CloudWatch Logs](https://github.com/Sudeep-811/AWS-Projects/blob/6d3be0c7c623ebc90a7831ba8e785f893ced43f9/ImageIntel%20with%20AWS%20Rekognition/cloudwatchlogs.jpg)
+   ![CloudWatch Logs](https://github.com/Sudeep-811/AWS-Projects/blob/7a59fa46a7710da7a54d9071e42786b19cf1d930/ImageIntel%20with%20AWS%20Rekognition/cloudwatch_logs.png)
 
 3. **Check DynamoDB Table**: Finally, we go and check our DynamoDB table, and voila! The results are here.
 
-   ![DynamoDB Table](https://github.com/Sudeep-811/AWS-Projects/blob/6d3be0c7c623ebc90a7831ba8e785f893ced43f9/ImageIntel%20with%20AWS%20Rekognition/resulttable.jpg)
+   ![DynamoDB Table](https://github.com/Sudeep-811/AWS-Projects/blob/7a59fa46a7710da7a54d9071e42786b19cf1d930/ImageIntel%20with%20AWS%20Rekognition/table_results.png)
 
 4. **Image Poster.jpg**: The image `Poster.jpg` looks like this:
 
@@ -316,7 +316,7 @@ To ensure this whole architecture works as expected, testing involves verifying 
 
    And the result shown by the DynamoDB table looks like this:
 
-   ![DynamoDB Result](https://github.com/Sudeep-811/AWS-Projects/blob/6d3be0c7c623ebc90a7831ba8e785f893ced43f9/ImageIntel%20with%20AWS%20Rekognition/result.jpg)
+   ![DynamoDB Result](https://github.com/Sudeep-811/AWS-Projects/blob/7a59fa46a7710da7a54d9071e42786b19cf1d930/ImageIntel%20with%20AWS%20Rekognition/result.png)
 
 ## Conclusion:
 Testing confirms that the Lambda function is properly analyzing images with Rekognition, accurately detecting and categorizing objects, faces, and celebrities, and reliably storing these results in DynamoDB. The results show that the function can handle a wide variety of image types and successfully logs any processing errors, making it ready for production use.
