@@ -1,6 +1,4 @@
-# ImageIntel with AWS Rekognition
-
-## Project Title
+# Project Title
 **ImageIntel with AWS Rekognition**
 
 ### Tagline
