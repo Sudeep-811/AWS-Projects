@@ -80,12 +80,12 @@ Creating a Lambda function on AWS is pretty straightforward. Here’s how to do 
        <img src="https://github.com/Sudeep-811/AWS-Projects/blob/f34c73666c3244e6e68859b0a34649eb298b2d3d/ImageIntel%20with%20AWS%20Rekognition/Lambda_Config.jpg?raw=true" alt="Lambda Config">
    </div>
 
-   - You will see a basic role is already created for the function and we will have to modify it. Click on role name and it will re-direct you to the IAM role window. From there click on **Add permissions > Attach policies**. It will open another window and you will have to select below roles from the list. [AmazonDynamoDBFullAccess, AmazonRekognitionReadOnlyAccess, AmazonS3ReadOnlyAccess, AWSLambdaBasicExecutionRole]
+   - You will see a basic role is already created for the function and we will have to modify it. Click on role name and it will re-direct you to the IAM role window. From there click on **Add permissions > Attach policies**. It will open another window and you will have to select below roles from the list. [`AmazonDynamoDBFullAccess`, `AmazonRekognitionReadOnlyAccess`, `AmazonS3ReadOnlyAccess`, AWSLambdaBasicExecutionRole`]
 
-     1. **AmazonDynamoDBFullAccess**- This policy will allow Lambda Function to write/modify tables in DyanamoDB.
-     2. **AmazonRekognitionReadOnlyAccess**- This policy allows the access to Amazon Rekognition to read data.
-     3. **AmazonS3ReadOnlyAccess**- Grants read-only access to Amazon S3 resources.
-     4. **AWSLambdaBasicExecutionRole**- This policy provides basic permissions required for AWS Lambda functions to execute and log to Amazon CloudWatch.  
+     1. `**AmazonDynamoDBFullAccess**`- This policy will allow Lambda Function to write/modify tables in DyanamoDB.
+     2. `**AmazonRekognitionReadOnlyAccess**`- This policy allows the access to Amazon Rekognition to read data.
+     3. `**AmazonS3ReadOnlyAccess**`- Grants read-only access to Amazon S3 resources.
+     4. `**AWSLambdaBasicExecutionRole**`- This policy provides basic permissions required for AWS Lambda functions to execute and log to Amazon CloudWatch.  
      
      <div align="center">
          <img src="https://github.com/Sudeep-811/AWS-Projects/blob/f34c73666c3244e6e68859b0a34649eb298b2d3d/ImageIntel%20with%20AWS%20Rekognition/Lambda_roles.jpg?raw=true" alt="Lambda Roles">
