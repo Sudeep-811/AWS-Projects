@@ -20,7 +20,9 @@ A simple architecture diagram showing how each component works together:
 - **Amazon Rekognition**: For intelligent image analysis, detecting labels, faces, and even celebrities.
 - **DynamoDB**: To store results in a fast and scalable database.
 
-![Architecture Diagram](https://github.com/Sudeep-811/AWS-Projects/blob/f3717eefa51d9b5b522182275ad6565cb5209e6a/ImageIntel%20with%20AWS%20Rekognition/Imageintel%20Architecture.png?raw=true)
+     <div align="center">
+       <img src="[https://github.com/Sudeep-811/AWS-Projects/blob/ada2aa3bebdcfbe74410b8ba182a63cf3259415d/ImageIntel%20with%20AWS%20Rekognition/s3_name%26region.png](https://github.com/Sudeep-811/AWS-Projects/blob/f3717eefa51d9b5b522182275ad6565cb5209e6a/ImageIntel%20with%20AWS%20Rekognition/Imageintel%20Architecture.png?raw=true)">
+   </div>
 
 ## How It Works
 1. **Image Upload**: Users upload an image to an S3 bucket.
