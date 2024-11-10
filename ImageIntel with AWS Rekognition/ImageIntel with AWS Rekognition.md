@@ -28,95 +28,108 @@ A simple architecture diagram showing how each component works together:
 3. **Rekognition Analysis**: The Lambda function calls Rekognition to analyze the image for labels, faces, and celebrities.
 4. **Results in DynamoDB**: The Lambda function then stores the analysis results in DynamoDB for easy retrieval.
 
-# Step-By-Step Guide
+# Step-By-Step Guide:
 
-## A. Creating an S3 Bucket
+## A. Creating S3 bucket-
 
 1. **Log into AWS**  
-   Go to the AWS Management Console and log in with your account.
+   First, go to the AWS Management Console and log in with your account.
 
 2. **Find S3**  
-   In the search bar at the top, type "S3" and select it. This will take you to the S3 service dashboard.
+   In the search bar at the top, type “S3” and select it. This will take you to the S3 service dashboard.
 
 3. **Start Creating a Bucket**  
    On the S3 dashboard, click **Create bucket**. This will open a page where you can set up the basics of your new bucket.
 
-4. **Name and Region**
-   - **Bucket Name**: Choose a unique name (e.g., `testbucket811`) since bucket names must be unique across AWS.
-   - **AWS Region**: Select a region close to you or your users for faster access.
+4. **Name and Region**  
+   - **Bucket Name**: Choose a name that’s unique across all of AWS (this part is important since bucket names can’t be reused by others). Make it something easy to remember and related to what you'll store in it. [In my case I used testbucket811]
+   - **AWS Region**: Select a region that’s close to you or your users for faster access.  
+   
+   ![S3 Name and Region](https://github.com/Sudeep-811/AWS-Projects/blob/f34c73666c3244e6e68859b0a34649eb298b2d3d/ImageIntel%20with%20AWS%20Rekognition/S3_name%26region.jpg?raw=true)
 
-   ![S3 Bucket Name and Region](https://github.com/Sudeep-811/AWS-Projects/blob/f34c73666c3244e6e68859b0a34649eb298b2d3d/ImageIntel%20with%20AWS%20Rekognition/S3_name%26region.jpg?raw=true)
-
-5. **Customize Your Settings (Optional)**
-   - **Block Public Access**: Keep this checked unless public access is needed.
-   - **Bucket Versioning**: Enable if you want AWS to save every version of files that are updated.
-   - **Tags**: Add tags to help organize and track usage.
+5. **Customize Your Settings (Optional)**  
+   You’ll see a few options here:  
+   - **Block Public Access**: By default, AWS blocks public access to keep your data safe. Keep this checked unless you specifically need public access.
+   - **Bucket Versioning**: You can enable versioning if you want AWS to save every version of files that are updated or overwritten.
+   - **Tags**: Adding tags can help with organizing and tracking usage across projects.
 
 6. **Create Your Bucket**  
    Once everything looks good, click **Create bucket** at the bottom of the page.
 
-## B. Creating a Lambda Function
+## B. Creating Lambda Function-
 
-1. **Go to AWS Lambda**
-   - Log in to the AWS Management Console.
-   - In the search bar, type "Lambda" and select it.
+Creating a Lambda function on AWS is pretty straightforward. Here’s how to do it:
 
-2. **Click "Create Function"**  
-   Click **Create function** on the main Lambda page to get started.
+1. **Go to AWS Lambda**  
+   - First, log in to the AWS Management Console.
+   - In the search bar, type **Lambda** and select it from the list. This will take you to the Lambda service dashboard.
 
-3. **Set Up Basic Details**
-   - **Function Name**: Give your function a unique name.
-   - **Runtime**: Select the language (e.g., Python 3.12).
-   - **Permissions**: AWS creates a basic role with minimal permissions, which will need modification later.
+2. **Click “Create Function”**  
+   On the main Lambda page, you’ll see a **Create function** button – click on that to get started.
 
-   Go to the **Configuration** tab and select **Permissions**.
+3. **Set Up Basic Details**  
+   - **Function name**: Give your function a unique name that describes what it will do.
+   - **Runtime**: Select the language your function will use, like Python, Node.js, or Java (In my case I used Python 3.12).
+   - **Permissions**: AWS will create a basic role with minimal permissions for you. But we will have to change this role later as out function will be using multiple AWS service.
+   - After this go ahead and create function.
+   - Once it is created got to the configuration column and select Permission on the left side.  
+   
+   ![Lambda Config](https://github.com/Sudeep-811/AWS-Projects/blob/f34c73666c3244e6e68859b0a34649eb298b2d3d/ImageIntel%20with%20AWS%20Rekognition/Lambda_Config.jpg?raw=true)
 
-   ![Lambda Permissions](https://github.com/Sudeep-811/AWS-Projects/blob/f34c73666c3244e6e68859b0a34649eb298b2d3d/ImageIntel%20with%20AWS%20Rekognition/Lambda_Config.jpg?raw=true)
+   - You will see a basic role is already created for the function and we will have to modify it. Click on role name and it will re-direct you to the IAM role window. From there click on **Add permissions > Attach policies**. It will open another window and you will have to select below roles from the list. [AmazonDynamoDBFullAccess, AmazonRekognitionReadOnlyAccess, AmazonS3ReadOnlyAccess, AWSLambdaBasicExecutionRole]
 
-4. **Modify Role Permissions**  
-   Click the role name to go to the IAM role window. Add the following policies:
-   - **AmazonDynamoDBFullAccess**: Allows Lambda to write/modify DynamoDB tables.
-   - **AmazonRekognitionReadOnlyAccess**: Allows Lambda to read data from Amazon Rekognition.
-   - **AmazonS3ReadOnlyAccess**: Grants read-only access to Amazon S3.
-   - **AWSLambdaBasicExecutionRole**: Basic permissions for Lambda to execute and log to CloudWatch.
+     1. **AmazonDynamoDBFullAccess**- This policy will allow Lambda Function to write/modify tables in DyanamoDB.
+     2. **AmazonRekognitionReadOnlyAccess**- This policy allows the access to Amazon Rekognition to read data.
+     3. **AmazonS3ReadOnlyAccess**- Grants read-only access to Amazon S3 resources.
+     4. **AWSLambdaBasicExecutionRole**- This policy provides basic permissions required for AWS Lambda functions to execute and log to Amazon CloudWatch.  
+     
+     ![Lambda Roles](https://github.com/Sudeep-811/AWS-Projects/blob/f34c73666c3244e6e68859b0a34649eb298b2d3d/ImageIntel%20with%20AWS%20Rekognition/Lambda_roles.jpg?raw=true)
 
-   ![Lambda Roles](https://github.com/Sudeep-811/AWS-Projects/blob/f34c73666c3244e6e68859b0a34649eb298b2d3d/ImageIntel%20with%20AWS%20Rekognition/Lambda_roles.jpg?raw=true)
+4. **Write Your Code in AWS Lambda Function**  
+   - Now, you’ll see a code editor where you can start writing your function’s code.
+   - I am attaching the code below in the “Code and Implementation” section. You can use the same code for your project but make sure you replace bucket name and DynamoDB table name by your own bucket and table.
 
-5. **Write Your Code**  
-   Use the code editor to write your function’s code. Ensure you replace the bucket and DynamoDB table names with your own.
+5. **Add a Trigger**  
+   - Trigger is needed for Lambda function to automatically respond when a new file added to an S3 bucket, go to the Function overview section and click **Add trigger**.
+   - Choose a service- **S3**, select the event that should trigger the function, in our case event will be – All object create events. After this add the trigger.
 
-6. **Add a Trigger**  
-   - Go to **Function overview** and click **Add trigger**.
-   - Choose **S3** as the service and select **All object create events**.
+6. **Configure Your Function (Optional)**  
+   In the **Configuration** tab, you’ll find settings for things like memory allocation and timeout limits. Adjust these depending on your function’s needs. For example, if your function will process large files, increasing the memory or timeout might help.
 
-7. **Configure Your Function (Optional)**  
-   Adjust settings like memory allocation and timeout limits under **Configuration**.
+7. **Test the Function**  
+   - At the top of the editor, you’ll see a **Test** button. Click it, and create a new test event with input data.
+   - Run the test to see if everything works as expected. The console will show output, logs, and any errors, which can be helpful for debugging.
 
-8. **Test the Function**  
-   Click **Test**, create a test event, and run it to see if everything works as expected.
+8. **Deploy and Monitor**  
+   - AWS automatically deploys your function as you save changes, so once it’s saved, it’s ready to go!
+   - You can check the **Monitoring** tab to view CloudWatch metrics and logs to see how your function is performing.
 
-9. **Deploy and Monitor**  
-   AWS deploys your function automatically as you save changes. Use the **Monitoring** tab for metrics and logs.
+   And that’s it! Your Lambda function is live and ready to use. You can trigger it manually, schedule it, or set it up to respond to specific events.
 
-## C. Creating a DynamoDB Table
+## C. Creating a DynamoDB table-
 
 1. **Open the DynamoDB Console**
-   - Log in to your AWS Management Console.
-   - In the search bar, type "DynamoDB" and select it.
+   - First, log into your AWS Management Console.
+   - In the search bar, type **DynamoDB** and select it from the results to go to the DynamoDB dashboard.
 
 2. **Click "Create Table"**  
-   Look for the **Create table** button on the top right and click it.
+   Once you're in the DynamoDB console, look for the **Create table** button on the top right and click it.
 
-3. **Configure Table Settings**
-   - **Table Name**: Enter a unique name (e.g., `ImageResults`).
-   - **Primary Key**: Set up the primary key.
-     - **Partition Key**: Set as `ImageID` for storing image data.
+3. **Configure Table Settings**  
+   You’ll now see a form where you’ll define the table’s settings. Here are the fields you need to fill out:
+   - **Table Name**: Enter a name for your table. This name must be unique within your DynamoDB instance. [I used ImageResults]
+   - **Primary Key**: Every DynamoDB table requires a primary key. You’ll choose one or more attributes to uniquely identify each item in the table.
+     - **Partition Key (mandatory)**: This is the main identifier for your table’s items. It can be a string, number, or binary. In this case, we are creating a table to store image data, so we are using ImageID.
+     - **Sort Key (optional)**: This is an additional key that helps you organize items within the partition. If you only need a single key, you can skip this. If you have multiple attributes that uniquely identify an item (like a ImageID and Timestamp for events), use a sort key.
 
 4. **Set Up Table Settings (Optional)**  
    Leave the rest of the settings as default.
 
 5. **Review and Create**  
-   Review your table settings and click **Create**.
+   After filling out the configuration details:
+   - Review your table settings to make sure everything looks good.
+   - Click the **Create** button.
 
 6. **Done! Your Table is Created**  
-   Once created, you'll be taken to the table’s dashboard with information about the table’s configuration.
+   - DynamoDB will create the table. It might take a few moments.
+   - Once the table is ready, you’ll be taken to the table’s dashboard, where you can see information about it, including the primary key, capacity, and other settings.
