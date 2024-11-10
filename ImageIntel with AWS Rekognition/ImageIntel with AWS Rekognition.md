@@ -291,3 +291,36 @@ Once the Rekognition analysis is complete, the Lambda function saves the results
 
 ### In a Nutshell:
 This Lambda function automates the analysis of images in an S3 bucket. It uses Rekognition to detect labels, faces, and celebrities in each image, and then stores the results in DynamoDB. This setup provides a reliable and easily searchable way to store and access image analysis data for later use, making it ideal for applications where you need detailed image insights at scale.
+
+# Testing & Results:
+
+To ensure this whole architecture works as expected, testing involves verifying that each step performs correctly when images are uploaded, analyzed, and stored in DynamoDB.
+
+1. **Upload Images**: I am going to upload a few images in my bucket, one of them is named as `Poster.jpg`.
+
+   ![Bucket Content](https://github.com/Sudeep-811/AWS-Projects/blob/6d3be0c7c623ebc90a7831ba8e785f893ced43f9/ImageIntel%20with%20AWS%20Rekognition/bucketcontent.jpg)
+
+2. **Check CloudWatch Logs**: Once the files are uploaded, we can check the CloudWatch logs to see if everything is working as expected.
+
+   ![CloudWatch Logs](https://github.com/Sudeep-811/AWS-Projects/blob/6d3be0c7c623ebc90a7831ba8e785f893ced43f9/ImageIntel%20with%20AWS%20Rekognition/cloudwatchlogs.jpg)
+
+3. **Check DynamoDB Table**: Finally, we go and check our DynamoDB table, and voila! The results are here.
+
+   ![DynamoDB Table](https://github.com/Sudeep-811/AWS-Projects/blob/6d3be0c7c623ebc90a7831ba8e785f893ced43f9/ImageIntel%20with%20AWS%20Rekognition/resulttable.jpg)
+
+4. **Image Poster.jpg**: The image `Poster.jpg` looks like this:
+
+   ![Poster Image](https://github.com/Sudeep-811/AWS-Projects/blob/6d3be0c7c623ebc90a7831ba8e785f893ced43f9/ImageIntel%20with%20AWS%20Rekognition/poster.jpg)
+
+   And the result shown by the DynamoDB table looks like this:
+
+   ![DynamoDB Result](https://github.com/Sudeep-811/AWS-Projects/blob/6d3be0c7c623ebc90a7831ba8e785f893ced43f9/ImageIntel%20with%20AWS%20Rekognition/result.jpg)
+
+## Conclusion:
+Testing confirms that the Lambda function is properly analyzing images with Rekognition, accurately detecting and categorizing objects, faces, and celebrities, and reliably storing these results in DynamoDB. The results show that the function can handle a wide variety of image types and successfully logs any processing errors, making it ready for production use.
+
+With ImageIntel, I set out to build an automated, intelligent way to analyze images using AWS. Every time an image is uploaded, it’s instantly processed to detect labels, faces, and even recognize celebrities—giving meaningful insights right at your fingertips. By connecting S3, Lambda, Rekognition, and DynamoDB, this project shows how we can combine cloud tools to create something powerful yet efficient.
+
+Working on ImageIntel taught me a lot about event-driven architecture, serverless functions, and using AI in real-world scenarios. Along the way, I tackled challenges like setting up permissions, Lambda function timeouts, and other errors, which helped me strengthen my skills in AWS and cloud computing.
+
+I’m excited about where this project could go next—adding a user-friendly dashboard, expanding to support other media types, or even sending real-time alerts when certain things are detected. Overall, this project was a rewarding experience, and I’m looking forward to applying what I’ve learned to future projects and roles where I can continue building impactful cloud-based solutions.
