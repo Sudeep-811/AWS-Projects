@@ -42,10 +42,12 @@ A simple architecture diagram showing how each component works together:
    On the S3 dashboard, click **Create bucket**. This will open a page where you can set up the basics of your new bucket.
 
 4. **Name and Region**  
-   - **Bucket Name**: Choose a name that’s unique across all of AWS (this part is important since bucket names can’t be reused by others). Make it something easy to remember and related to what you'll store in it. [In my case I used testbucket811]
+   - **Bucket Name**: Choose a name that’s unique across all of AWS (this part is important since bucket names can’t be reused by others). Make it something easy to remember and related to what you'll store in it. [In my case I used `testbucket811`]
    - **AWS Region**: Select a region that’s close to you or your users for faster access.  
-   
-   ![S3 Name and Region](https://github.com/Sudeep-811/AWS-Projects/blob/f34c73666c3244e6e68859b0a34649eb298b2d3d/ImageIntel%20with%20AWS%20Rekognition/S3_name%26region.jpg?raw=true)
+
+   <div align="center">
+       <img src="https://github.com/Sudeep-811/AWS-Projects/blob/f34c73666c3244e6e68859b0a34649eb298b2d3d/ImageIntel%20with%20AWS%20Rekognition/S3_name%26region.jpg?raw=true" alt="S3 Name and Region">
+   </div>
 
 5. **Customize Your Settings (Optional)**  
    You’ll see a few options here:  
@@ -73,8 +75,10 @@ Creating a Lambda function on AWS is pretty straightforward. Here’s how to do 
    - **Permissions**: AWS will create a basic role with minimal permissions for you. But we will have to change this role later as out function will be using multiple AWS service.
    - After this go ahead and create function.
    - Once it is created got to the configuration column and select Permission on the left side.  
-   
-   ![Lambda Config](https://github.com/Sudeep-811/AWS-Projects/blob/f34c73666c3244e6e68859b0a34649eb298b2d3d/ImageIntel%20with%20AWS%20Rekognition/Lambda_Config.jpg?raw=true)
+
+   <div align="center">
+       <img src="https://github.com/Sudeep-811/AWS-Projects/blob/f34c73666c3244e6e68859b0a34649eb298b2d3d/ImageIntel%20with%20AWS%20Rekognition/Lambda_Config.jpg?raw=true" alt="Lambda Config">
+   </div>
 
    - You will see a basic role is already created for the function and we will have to modify it. Click on role name and it will re-direct you to the IAM role window. From there click on **Add permissions > Attach policies**. It will open another window and you will have to select below roles from the list. [AmazonDynamoDBFullAccess, AmazonRekognitionReadOnlyAccess, AmazonS3ReadOnlyAccess, AWSLambdaBasicExecutionRole]
 
@@ -83,7 +87,9 @@ Creating a Lambda function on AWS is pretty straightforward. Here’s how to do 
      3. **AmazonS3ReadOnlyAccess**- Grants read-only access to Amazon S3 resources.
      4. **AWSLambdaBasicExecutionRole**- This policy provides basic permissions required for AWS Lambda functions to execute and log to Amazon CloudWatch.  
      
-     ![Lambda Roles](https://github.com/Sudeep-811/AWS-Projects/blob/f34c73666c3244e6e68859b0a34649eb298b2d3d/ImageIntel%20with%20AWS%20Rekognition/Lambda_roles.jpg?raw=true)
+     <div align="center">
+         <img src="https://github.com/Sudeep-811/AWS-Projects/blob/f34c73666c3244e6e68859b0a34649eb298b2d3d/ImageIntel%20with%20AWS%20Rekognition/Lambda_roles.jpg?raw=true" alt="Lambda Roles">
+     </div>
 
 4. **Write Your Code in AWS Lambda Function**  
    - Now, you’ll see a code editor where you can start writing your function’s code.
@@ -117,10 +123,10 @@ Creating a Lambda function on AWS is pretty straightforward. Here’s how to do 
 
 3. **Configure Table Settings**  
    You’ll now see a form where you’ll define the table’s settings. Here are the fields you need to fill out:
-   - **Table Name**: Enter a name for your table. This name must be unique within your DynamoDB instance. [I used ImageResults]
+   - **Table Name**: Enter a name for your table. This name must be unique within your DynamoDB instance. [I used `ImageResults`]
    - **Primary Key**: Every DynamoDB table requires a primary key. You’ll choose one or more attributes to uniquely identify each item in the table.
-     - **Partition Key (mandatory)**: This is the main identifier for your table’s items. It can be a string, number, or binary. In this case, we are creating a table to store image data, so we are using ImageID.
-     - **Sort Key (optional)**: This is an additional key that helps you organize items within the partition. If you only need a single key, you can skip this. If you have multiple attributes that uniquely identify an item (like a ImageID and Timestamp for events), use a sort key.
+     - **Partition Key (mandatory)**: This is the main identifier for your table’s items. It can be a string, number, or binary. In this case, we are creating a table to store image data, so we are using `ImageID`.
+     - **Sort Key (optional)**: This is an additional key that helps you organize items within the partition. If you only need a single key, you can skip this. If you have multiple attributes that uniquely identify an item (like a `ImageID` and Timestamp for events), use a sort key.
 
 4. **Set Up Table Settings (Optional)**  
    Leave the rest of the settings as default.
