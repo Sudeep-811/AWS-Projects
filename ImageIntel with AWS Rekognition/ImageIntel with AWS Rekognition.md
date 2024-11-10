@@ -139,3 +139,49 @@ Creating a Lambda function on AWS is pretty straightforward. Here’s how to do 
 6. **Done! Your Table is Created**  
    - DynamoDB will create the table. It might take a few moments.
    - Once the table is ready, you’ll be taken to the table’s dashboard, where you can see information about it, including the primary key, capacity, and other settings.
+
+# Code and Implementation:
+
+## Lambda Function:
+This Lambda function is designed to automatically analyze images that are uploaded to an S3 bucket. Here’s how it works step-by-step:
+
+1. **Trigger**: Whenever an image is uploaded to the S3 bucket, the Lambda function can be triggered to start processing. This particular function is written to go through all images in the bucket, but you could configure it to only analyze newly uploaded images if that’s more useful.
+
+2. **Image Processing**: The function lists all objects (images) in the S3 bucket. For each image, it calls a few Amazon Rekognition APIs to perform a detailed analysis. If any part of the process runs into an issue, the function logs the error and moves on to the next image, ensuring that one error doesn’t halt the entire process.
+
+3. **Rekognition API Calls**: The Lambda function interacts with Rekognition to extract information about the image, such as objects, faces, and celebrity recognition. After gathering these results, it stores them in DynamoDB so that the data is easily accessible later on.
+
+### API Usage:
+This function makes use of three Amazon Rekognition APIs to get different insights from each image:
+
+1. **Detect Labels**:
+   - The `detect_labels` API identifies general objects and scenes in the image. For example, it might find labels like “Tree,” “Car,” or “Mountain.”
+   - The function requests up to 10 labels for each image and only includes labels with a confidence score of 75% or higher.
+   - Once the labels are detected, they’re stored as part of the image’s analysis results in DynamoDB.
+
+2. **Detect Faces**:
+   - The `detect_faces` API finds human faces in the image and analyzes attributes like age range, gender, emotions (e.g., happy, sad), and smile.
+   - For each face, it returns detailed information about the detected person’s features, and only emotions with a high confidence level (over 75%) are included.
+   - These face details are collected and saved in DynamoDB as part of the analysis results for that image.
+
+3. **Recognize Celebrities**:
+   - The `recognize_celebrities` API checks if any recognized celebrities appear in the image and returns their names along with a confidence score for the match.
+   - If the function finds any celebrities, their details are also stored in DynamoDB.
+
+### Storing Results in DynamoDB:
+Once the Rekognition analysis is complete, the Lambda function saves the results in DynamoDB in a table called `ImageResults`. Here’s how it organizes the data:
+
+1. **Table Structure**:
+   - The DynamoDB table uses `ImageID` (the S3 image filename) as the primary key. This makes each image uniquely identifiable in the database.
+   - For each image, it stores three main fields: **Labels**, **Faces**, and **Celebrities**.
+
+2. **Data Format**:
+   - **Labels**: The list of detected labels, stored in JSON format.
+   - **Faces**: Details about each detected face, including attributes like age range, emotions, gender, and smile.
+   - **Celebrities**: Names and confidence scores of any recognized celebrities.
+
+3. **Saving Data**:
+   - Using `put_item`, the function writes all these details to DynamoDB, creating an organized record of the analysis for each image.
+
+### In a Nutshell:
+This Lambda function automates the analysis of images in an S3 bucket. It uses Rekognition to detect labels, faces, and celebrities in each image, and then stores the results in DynamoDB. This setup provides a reliable and easily searchable way to store and access image analysis data for later use, making it ideal for applications where you need detailed image insights at scale.
