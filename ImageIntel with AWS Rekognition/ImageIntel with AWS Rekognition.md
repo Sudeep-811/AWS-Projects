@@ -318,8 +318,10 @@ To ensure this whole architecture works as expected, testing involves verifying 
 
    ![DynamoDB Result](https://github.com/Sudeep-811/AWS-Projects/blob/7a59fa46a7710da7a54d9071e42786b19cf1d930/ImageIntel%20with%20AWS%20Rekognition/result.png)
 
+   Testing confirms that the Lambda function is properly analyzing images with Rekognition, accurately detecting and categorizing objects, faces, and celebrities, and reliably storing these results in DynamoDB. The results show that the function can handle a wide variety of image types and successfully logs any processing errors, making it ready for production use.
+
 ## Conclusion:
-Testing confirms that the Lambda function is properly analyzing images with Rekognition, accurately detecting and categorizing objects, faces, and celebrities, and reliably storing these results in DynamoDB. The results show that the function can handle a wide variety of image types and successfully logs any processing errors, making it ready for production use.
+
 
 With ImageIntel, I set out to build an automated, intelligent way to analyze images using AWS. Every time an image is uploaded, it’s instantly processed to detect labels, faces, and even recognize celebrities—giving meaningful insights right at your fingertips. By connecting S3, Lambda, Rekognition, and DynamoDB, this project shows how we can combine cloud tools to create something powerful yet efficient.
 
