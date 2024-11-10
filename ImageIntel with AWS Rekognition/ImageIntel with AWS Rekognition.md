@@ -1,5 +1,4 @@
-# Project Title
-**ImageIntel with AWS Rekognition**
+# Project Title: ImageIntel with AWS Rekognition
 
 ### Tagline
 Automated Image Analysis Pipeline using AWS Rekognition, Lambda, and DynamoDB.
