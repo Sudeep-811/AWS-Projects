@@ -38,7 +38,7 @@
   </a>
   &nbsp;
   <a href="mailto:Sudeepkv811@gmail.com" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Gmail_Icon_%282013-2023%29.svg" alt="Gmail" height="30" width="30" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Google_Gmail_logo_2015.svg" alt="Gmail" height="30" width="30" />
   </a>
 </p>
 
@@ -50,4 +50,3 @@
 <hr>
 
 <p>Thanks for visiting! 😄</p>
-
