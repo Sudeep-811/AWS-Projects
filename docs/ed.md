@@ -38,7 +38,7 @@
   </a>
   &nbsp;
   <a href="mailto:Sudeepkv811@gmail.com" target="_blank">
-    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.iconfinder.com%2Ficons%2F7089163%2Fgmail_google_icon&psig=AOvVaw3nnZpxDPQWAv-Xln8LDlTt&ust=1731426541817000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIiojdPQ1IkDFQAAAAAdAAAAABAE" alt="Gmail" height="30" width="30" />
+    <script src="https://gist.github.com/iamhelenliu/5771694.js"></script>
   </a>
 </p>
 
@@ -50,3 +50,5 @@
 <hr>
 
 <p>Thanks for visiting! 😄</p>
+
+<script src="https://gist.github.com/iamhelenliu/5771694.js"></script>
