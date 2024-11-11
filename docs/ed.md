@@ -1,4 +1,4 @@
-# Hi there, I'm Sudeep! 👋
+# Hi 👋, I'm Sudeep Verma
 
 Welcome to my GitHub profile. I'm a passionate AWS enthusiast, and I love building cool projects using the power of cloud technology. Here, you'll find a collection of my work, experiments, and ideas. Whether it's diving deep into serverless architectures, exploring AI integrations, or automating cloud infrastructure, I'm always excited to learn and share.
 
@@ -13,9 +13,9 @@ Welcome to my GitHub profile. I'm a passionate AWS enthusiast, and I love buildi
 ---
 
 ## 💼 What I'm Working On
-- Exploring more AWS services (Lambda, S3, Rekognition, DynamoDB)
-- Enhancing my cloud automation skills
-- Building new AI-driven applications
+- Exploring more AWS services.
+- Enhancing my cloud automation skills ( Terraform,  AWS CloudFormation).
+- Learning Cloud AI/ML, while expanding expertise in Azure and GCP to build scalable, intelligent cloud solutions.
 
 ---
 
@@ -34,7 +34,7 @@ Welcome to my GitHub profile. I'm a passionate AWS enthusiast, and I love buildi
 ---
 
 ### Fun Fact: 
-I love experimenting with new cloud technologies and automating my life using them. When I'm not coding, you can find me reading tech blogs or exploring the latest cloud innovations.
+Turning data into insight and machines into problem solvers, all with the power of the cloud.
 
 ---
 
