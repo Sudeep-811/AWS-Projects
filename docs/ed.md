@@ -36,6 +36,10 @@
   <a href="https://www.linkedin.com/in/sudeepverma811" target="_blank">
     <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="LinkedIn" height="30" width="30" />
   </a>
+  &nbsp;
+  <a href="mailto:Sudeepkv811@gmail.com" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Gmail_Logo_2023.png" alt="Gmail" height="30" width="30" />
+  </a>
 </p>
 
 <hr>
