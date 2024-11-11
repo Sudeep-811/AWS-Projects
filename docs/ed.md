@@ -47,4 +47,3 @@
 
 <p>Thanks for visiting! 😄</p>
 
-<script src="https://gist.github.com/iamhelenliu/5771694.js"></script>
