@@ -37,9 +37,6 @@
     <img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="LinkedIn" height="30" width="30" />
   </a>
   &nbsp;
-  <a href="mailto:Sudeepkv811@gmail.com" target="_blank">
-    <script src="https://gist.github.com/iamhelenliu/5771694.js"></script>
-  </a>
 </p>
 
 <hr>
