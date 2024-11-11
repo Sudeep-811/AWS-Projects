@@ -38,7 +38,7 @@
   </a>
   &nbsp;
   <a href="mailto:Sudeepkv811@gmail.com" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/63/Google_Gmail_logo_2015.svg" alt="Gmail" height="30" width="30" />
+    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.iconfinder.com%2Ficons%2F7089163%2Fgmail_google_icon&psig=AOvVaw3nnZpxDPQWAv-Xln8LDlTt&ust=1731426541817000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCIiojdPQ1IkDFQAAAAAdAAAAABAE" alt="Gmail" height="30" width="30" />
   </a>
 </p>
 
