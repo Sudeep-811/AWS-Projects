@@ -129,11 +129,11 @@ aws_secret_access_key = your-secret-access-key
    - Defined a valid health check endpoint (`/health`), adjusted the timeout and thresholds, and ensured the application was responding correctly on the specified path.
 
 2. **Security Group Configuration**  
-   - Misconfigured security groups caused connectivity issues between ALB, EC2, and RDS components.  
-   - Allowed specific traffic between ALB and EC2 instances (port 80) and between EC2 and RDS (port 3306).
+   - Misconfigured security groups can cause connectivity issues between ALB, EC2, and RDS components.  
+   - Allow specific traffic between ALB and EC2 instances (port 80/22) and between EC2 and RDS (port 3306).
 
 3. **Managing Dependencies in Terraform**  
-   - Used Terraform’s arguments strategically and ensured all resources were properly referenced to establish clear dependencies.
+   - Use Terraform’s arguments strategically and ensured all resources were properly referenced to establish clear dependencies.
 
 ---
 
