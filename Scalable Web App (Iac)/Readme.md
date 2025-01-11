@@ -113,7 +113,8 @@ aws_secret_access_key = your-secret-access-key
 
 - Ensure EC2 instances respond to traffic and verify database connectivity.
 
-  ![Database connectivity]([https://github.com/Sudeep-811/AWS-Projects/blob/c557379f57cdbe844c942b70e68ebe964c144187/Scalable%20Web%20App%20(Iac)/1ec2.png](https://github.com/Sudeep-811/AWS-Projects/blob/70690687ec5d7f9bfadef72e67fc9bc76b3d2646/Scalable%20Web%20App%20(Iac)/Database.png))
+  ![Database](https://github.com/Sudeep-811/AWS-Projects/blob/70690687ec5d7f9bfadef72e67fc9bc76b3d2646/Scalable%20Web%20App%20(Iac)/Database.png)
+
 
 
 ---
