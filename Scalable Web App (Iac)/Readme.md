@@ -68,3 +68,13 @@ provider "aws" {
   secret_key = "your-secret-access-key"
   region     = "ap-south-1"
 }
+```
+
+#### 2. 2-	Using AWS SDK Default Credentials Locations: Alternatively, you can store your AWS credentials in the default AWS SDK locations. For Windows, the default path is:
+C:\Users\REXX\.aws\credentials
+Make sure your credentials are saved there in the following format:
+```hcl
+[default]
+aws_access_key_id = your-access-key-id
+aws_secret_access_key = your-secret-access-key
+```
