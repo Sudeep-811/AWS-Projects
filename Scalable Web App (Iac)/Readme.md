@@ -107,6 +107,10 @@ aws_secret_access_key = your-secret-access-key
 
 ## 4. Test the Application
 - Access the ALB DNS name in a browser to view the deployed application.
+
+  ![EC2 Instance](https://github.com/Sudeep-811/AWS-Projects/blob/c557379f57cdbe844c942b70e68ebe964c144187/Scalable%20Web%20App%20(Iac)/1ec2.png)
+  ![EC2 Instance](https://github.com/Sudeep-811/AWS-Projects/blob/c557379f57cdbe844c942b70e68ebe964c144187/Scalable%20Web%20App%20(Iac)/2ec2.png)
+
 - Ensure EC2 instances respond to traffic and verify database connectivity.
 
 ---
