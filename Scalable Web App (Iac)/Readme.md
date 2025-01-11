@@ -179,5 +179,13 @@ aws_secret_access_key = your-secret-access-key
 
 ---
 
+---
+
+---
+
 ## Conclusion
-This project showcases the deployment of a production-ready, scalable web application using AWS and Terraform. The infrastructure is resilient, cost-effective, and adheres to best practices for cloud architecture. The repository and documentation provide a comprehensive guide for others to replicate or build upon this setup.
+In this project, I’ve used Terraform to build and deploy a scalable web application on AWS, showcasing both my Terraform skills and a solid understanding of key AWS concepts. The architecture I’ve set up is not only cost-effective and highly available but also designed to scale easily with growing traffic. This project is a great example of how automation can make cloud infrastructure management much easier and more reliable. It's also fully reproducible, so you can follow along and set up something similar for yourself.
+
+You can find the source code for everything I’ve done in this project here: [GitHub - Terraform Code](https://github.com/Sudeep-811/AWS-Projects/tree/8732ca0417a6f896d66e0dafcd8b571650c72ec2/Scalable%20Web%20App%20(Iac)/Terraform%20code)
+
+
