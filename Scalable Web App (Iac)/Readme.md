@@ -30,4 +30,4 @@ The architecture follows a 3-tier structure:
 
 ## Diagram
 
-![Scalable Web App Architecture](link-Scalable Web App (Iac)/Architecture.gif)
+![Scalable Web App Architecture](https://github.com/Sudeep-811/AWS-Projects/blob/27dacd90c1fd6a806d92d15c55074e75580512d7/Scalable%20Web%20App%20(Iac)/Architecture.gif)
