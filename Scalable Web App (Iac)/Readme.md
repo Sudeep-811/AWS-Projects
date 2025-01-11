@@ -27,3 +27,7 @@ The architecture follows a 3-tier structure:
 - **RDS MySQL Database**:
   - Provides a managed relational database solution.
   - Configured for high availability with multi-AZ deployments.
+
+## Diagram
+
+![Scalable Web App Architecture](link-Scalable Web App (Iac)/Architecture.gif)
