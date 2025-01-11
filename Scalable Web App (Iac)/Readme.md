@@ -31,3 +31,40 @@ The architecture follows a 3-tier structure:
 ## Diagram
 
 ![Scalable Web App Architecture](https://github.com/Sudeep-811/AWS-Projects/blob/27dacd90c1fd6a806d92d15c55074e75580512d7/Scalable%20Web%20App%20(Iac)/Architecture.gif)
+
+---
+
+## Technologies Used
+1. **Terraform**: Infrastructure as Code (IaC) tool to automate AWS resource provisioning.
+2. **AWS**:
+   - **EC2**: Compute instances for running the application.
+   - **ALB**: Application Load Balancer for traffic distribution.
+   - **RDS**: Managed database service.
+   - **VPC**: Virtual Private Cloud for network isolation.
+   - **ASG**: To provision the number of EC2 instances based on demand.
+   - **NAT Gateway**: Allows private subnet instances to access the internet.
+   - **IAM**: Identity and Access Management for security.
+3. **Linux (Ubuntu)**: Operating system for EC2 instances.
+4. **Apache**: Web server for serving static and dynamic content.
+5. **GitHub**: Version control for Terraform configuration files.
+6. **Visual Studio Code (VS Code)**: IDE for writing and managing code.
+
+---
+
+## Step-by-Step Guide
+
+### 1. Here’s what you’ll need to get started:
+- Terraform installed on your system.
+- AWS CLI configured with valid credentials.
+- A basic understanding of AWS services and Terraform.
+
+**Important Note**:  
+To authenticate and interact with AWS through Terraform, you need to provide your AWS Access Key ID and Secret Access Key. You can do this in one of the following ways:
+
+#### 1. In your Terraform code:
+```hcl
+provider "aws" {
+  access_key = "your-access-key-id"
+  secret_key = "your-secret-access-key"
+  region     = "ap-south-1"
+}
