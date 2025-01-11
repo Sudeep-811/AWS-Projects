@@ -148,3 +148,42 @@ aws_secret_access_key = your-secret-access-key
 - Successfully deployed a web application with automated scaling and load balancing.
 - The architecture can handle growing traffic without any manual intervention.
 - The setup is fully reproducible, thanks to Terraform.
+
+---
+
+## VPC
+![VPC](https://github.com/Sudeep-811/AWS-Projects/blob/419d07fec9dff1f3cbe7d9c7ca6378f31c5f8a43/Scalable%20Web%20App%20(Iac)/vpc.png)
+
+---
+
+## RDS
+![RDS](https://github.com/Sudeep-811/AWS-Projects/blob/419d07fec9dff1f3cbe7d9c7ca6378f31c5f8a43/Scalable%20Web%20App%20(Iac)/rds.png)
+
+---
+
+## Target Group
+![Target Group](https://github.com/Sudeep-811/AWS-Projects/blob/419d07fec9dff1f3cbe7d9c7ca6378f31c5f8a43/Scalable%20Web%20App%20(Iac)/TG.png)
+
+---
+
+## Instances
+![Instances](https://github.com/Sudeep-811/AWS-Projects/blob/419d07fec9dff1f3cbe7d9c7ca6378f31c5f8a43/Scalable%20Web%20App%20(Iac)/exc2.png)
+
+---
+
+## ALB
+![ALB](https://github.com/Sudeep-811/AWS-Projects/blob/419d07fec9dff1f3cbe7d9c7ca6378f31c5f8a43/Scalable%20Web%20App%20(Iac)/LB.png)
+
+
+---
+
+## Future Enhancements
+1. Add caching with Amazon ElastiCache for improved performance.
+2. Implement CI/CD pipelines for automated deployments.
+3. Integrate AWS CloudFront: Implementing a content delivery network (CDN) to cache and serve static assets globally, reducing latency and enhancing user experience.
+4. Use AWS CloudWatch for centralized logging and monitoring.
+
+---
+
+## Conclusion
+This project showcases the deployment of a production-ready, scalable web application using AWS and Terraform. The infrastructure is resilient, cost-effective, and adheres to best practices for cloud architecture. The repository and documentation provide a comprehensive guide for others to replicate or build upon this setup.
