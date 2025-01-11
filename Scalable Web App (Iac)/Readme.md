@@ -70,7 +70,7 @@ provider "aws" {
 }
 ```
 
-#### 2. 2-	Using AWS SDK Default Credentials Locations: Alternatively, you can store your AWS credentials in the default AWS SDK locations. For Windows, the default path is:
+#### 2. Using AWS SDK Default Credentials Locations: Alternatively, you can store your AWS credentials in the default AWS SDK locations. For Windows, the default path is:
 C:\Users\REXX\.aws\credentials
 Make sure your credentials are saved there in the following format:
 ```hcl
@@ -78,3 +78,59 @@ Make sure your credentials are saved there in the following format:
 aws_access_key_id = your-access-key-id
 aws_secret_access_key = your-secret-access-key
 ```
+---
+
+## 2. Set Up Terraform Configuration
+
+#### 1. Initialize Terraform:
+- Create a directory for the project.
+- Run `terraform init` to initialize the working directory.
+
+#### 2. Define Variables:
+- Use `variables.tf` to define inputs like instance type, region, and networking ports.
+
+#### 3. Write Configuration Files:
+- `VPC.tf`: Provision resources like VPC, Subnets, IGW, NAT Gateway, Route Tables, and Security Groups.
+- `outputs.tf`: Exports key information like ALB DNS name and RDS endpoint.
+- `ASG.tf`: Provisions a launch template for EC2s with user data and an ASG with desired capacity.
+- `ALG.tf`: Provisions an Application Load Balancer with other necessary configurations.
+- `RDS.tf`: Provisions an RDS database instance with a database subnet group.
+
+---
+
+## 3. Deploy Infrastructure
+1. Run `terraform plan` to validate the configuration.
+2. Apply changes using `terraform apply`.
+3. Verify resources in the AWS Management Console.
+
+---
+
+## 4. Test the Application
+- Access the ALB DNS name in a browser to view the deployed application.
+- Ensure EC2 instances respond to traffic and verify database connectivity.
+
+---
+
+## 5. Clean Up
+- Run `terraform destroy` to remove all resources.
+
+---
+
+## Challenges and Solutions
+1. **Ensuring proper health checks for ALB to avoid unhealthy targets**  
+   - Defined a valid health check endpoint (`/health`), adjusted the timeout and thresholds, and ensured the application was responding correctly on the specified path.
+
+2. **Security Group Configuration**  
+   - Misconfigured security groups caused connectivity issues between ALB, EC2, and RDS components.  
+   - Allowed specific traffic between ALB and EC2 instances (port 80) and between EC2 and RDS (port 3306).
+
+3. **Managing Dependencies in Terraform**  
+   - Used Terraform’s arguments strategically and ensured all resources were properly referenced to establish clear dependencies.
+
+---
+
+## Results with Images
+- Successfully deployed a web application with automated scaling and load balancing.
+- The architecture can handle growing traffic without any manual intervention.
+- The setup is fully reproducible, thanks to Terraform.
+
