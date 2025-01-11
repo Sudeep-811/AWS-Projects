@@ -142,3 +142,9 @@ aws_secret_access_key = your-secret-access-key
 - The architecture can handle growing traffic without any manual intervention.
 - The setup is fully reproducible, thanks to Terraform.
 
+---
+
+## Results with Images
+- Successfully deployed a web application with automated scaling and load balancing.
+- The architecture can handle growing traffic without any manual intervention.
+- The setup is fully reproducible, thanks to Terraform.
