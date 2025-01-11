@@ -35,7 +35,7 @@ The architecture follows a 3-tier structure:
 ---
 
 ## Technologies Used
-1. **Terraform**: Infrastructure as Code (IaC) tool to automate AWS resource provisioning.
+1. **Terraform**: Infrastructure-as-a-Code (IaC) tool to automate AWS resource provisioning.
 2. **AWS**:
    - **EC2**: Compute instances for running the application.
    - **ALB**: Application Load Balancer for traffic distribution.
