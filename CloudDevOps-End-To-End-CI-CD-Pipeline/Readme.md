@@ -904,9 +904,9 @@ Unlike simple tutorials or basic applications, this project showcases:
 - [![Email](https://img.shields.io/badge/Email-Sudeepkv811@gmail.com-D14836?logo=gmail&logoColor=white&style=for-the-badge)](mailto:Sudeepkv811@gmail.com)
 
 ### **Project Links**
-- **Repository**: [CloudDevOps End-To-End CICD Pipeline](https://github.com/your-username/CloudDevOps-End-To-End-CICD-Pipeline)
+- **Repository**: [CloudDevOps End-To-End CICD Pipeline](https://github.com/Sudeep-811/CloudDevOps-End-To-End-CI-CD-Pipeline)
 - **Live Demo**: [JokeMaster Application](http://your-alb-dns-name)
-- **Architecture Docs**: [Detailed Architecture Guide](ARCHITECTURE-README.md)
+- **Architecture Docs**: [Detailed Architecture Guide](https://github.com/Sudeep-811/AWS-Projects/blob/a53c1ca07a1f30347c2488714410d92f4351601f/CloudDevOps-End-To-End-CI-CD-Pipeline/Architecture%20diagrams/Architecture%20Diagrams.md)
 
 ### **Contributing**
 Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
