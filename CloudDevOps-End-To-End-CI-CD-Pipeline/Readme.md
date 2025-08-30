@@ -7,7 +7,6 @@
 [![Docker](https://img.shields.io/badge/Docker-Containerized-blue?style=for-the-badge&logo=docker)](https://docker.com/)
 [![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-CI%2FCD-black?style=for-the-badge&logo=github-actions)](https://github.com/features/actions)
 [![Node.js](https://img.shields.io/badge/Node.js-18-green?style=for-the-badge&logo=node.js)](https://nodejs.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
 **Transform your development workflow with a production-ready, auto-scaling web application deployed on AWS using Infrastructure as Code and automated CI/CD pipelines.**
 
