@@ -899,7 +899,7 @@ Unlike simple tutorials or basic applications, this project showcases:
 **REX** - Cloud DevOps Engineer
 
 ### **Connect With Me**
-- **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/in/your-profile)
+- **LinkedIn**: [Your LinkedIn Profile]([https://linkedin.com/in/your-profile](https://www.linkedin.com/in/sudeepverma811/))
 - **GitHub**: [Your GitHub Profile](https://github.com/your-username)
 - **Email**: your.email@example.com
 - **Portfolio**: [Your Portfolio Website](https://your-portfolio.com)
