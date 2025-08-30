@@ -899,10 +899,9 @@ Unlike simple tutorials or basic applications, this project showcases:
 **REX** - Cloud DevOps Engineer
 
 ### **Connect With Me**
-- **LinkedIn**: [Your LinkedIn Profile](https://www.linkedin.com/in/sudeepverma811/)
-- **GitHub**: [Your GitHub Profile](https://github.com/your-username)
-- **Email**: your.email@example.com
-- **Portfolio**: [Your Portfolio Website](https://your-portfolio.com)
+- **LinkedIn**: [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin&logoColor=white&style=for-the-badge)](https://www.linkedin.com/in/sudeepverma811/)
+- **GitHub**: [![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?logo=github&logoColor=white&style=for-the-badge)](https://github.com/Sudeep-811)
+- **Email**: [![Email](https://img.shields.io/badge/Email-Sudeepkv811@gmail.com-D14836?logo=gmail&logoColor=white&style=for-the-badge)](mailto:Sudeepkv811@gmail.com)
 
 ### **Project Links**
 - **Repository**: [CloudDevOps End-To-End CICD Pipeline](https://github.com/your-username/CloudDevOps-End-To-End-CICD-Pipeline)
