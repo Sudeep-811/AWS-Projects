@@ -223,10 +223,10 @@ export AWS_ACCESS_KEY_ID="your-access-key"
 export AWS_SECRET_ACCESS_KEY="your-secret-key"
 export AWS_DEFAULT_REGION="ap-south-1"
 
-# 3. Deploy infrastructure
+# 3. Initialize infrastructure
 cd Infrastructure
 terraform init
-terraform apply
+terraform apply #(If you want to deploy infra. manually)
 
 # 4. Deploy application (automatic via GitHub Actions)
 git push origin main
