@@ -104,7 +104,7 @@ graph TB
     subgraph "AWS Account - ap-south-1"
         subgraph "State Management"
             S3_STATE[🪣 S3 Bucket<br/>my-tf-state-bucket-rex-2025<br/>Versioning Enabled]
-            DDB_LOCK[🔒 DynamoDB Table<br/>my-tf-lock-table-rex-2025<br/>LockID (String)]
+            DDB_LOCK[🔒 DynamoDB Table<br/>my-tf-lock-table-rex-2025<br/>LockID String]
         end
         
         subgraph "Container Registry"
