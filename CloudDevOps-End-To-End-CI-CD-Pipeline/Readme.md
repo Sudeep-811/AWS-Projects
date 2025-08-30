@@ -215,7 +215,7 @@ The system consists of several integrated layers:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/your-username/CloudDevOps-End-To-End-CICD-Pipeline.git
+git clone https://github.com/Sudeep-811/CloudDevOps-End-To-End-CI-CD-Pipeline.git
 cd CloudDevOps-End-To-End-CICD-Pipeline
 
 # 2. Set up AWS credentials
