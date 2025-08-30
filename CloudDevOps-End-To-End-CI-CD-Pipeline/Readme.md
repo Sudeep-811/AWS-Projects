@@ -300,35 +300,19 @@ aws sts get-caller-identity
 ```bash
 cd Infrastructure
 
-# Create S3 bucket for state storage
-aws s3api create-bucket \
-  --bucket my-tf-state-bucket-rex-2025 \
-  --region ap-south-1 \
-  --create-bucket-configuration LocationConstraint=ap-south-1
-
-# Enable versioning
-aws s3api put-bucket-versioning \
-  --bucket my-tf-state-bucket-rex-2025 \
-  --versioning-configuration Status=Enabled
-
-# Create DynamoDB table for state locking
-aws dynamodb create-table \
-  --table-name my-tf-lock-table-rex-2025 \
-  --attribute-definitions AttributeName=LockID,AttributeType=S \
-  --key-schema AttributeName=LockID,KeyType=HASH \
-  --billing-mode PAY_PER_REQUEST
-```
-
-### **Step 3: Deploy Infrastructure**
-
-```bash
-# Initialize Terraform with S3 backend
+# Initialize Terraform with S3 backend configuration
 terraform init \
   -backend-config="bucket=my-tf-state-bucket-rex-2025" \
   -backend-config="key=jokes-app/terraform.tfstate" \
   -backend-config="region=ap-south-1" \
   -backend-config="dynamodb_table=my-tf-lock-table-rex-2025"
+```
 
+**Note**: The S3 bucket and DynamoDB table for Terraform state management are automatically created by the GitHub Actions workflow if they don't exist. This is handled in the CI/CD pipeline's "Infrastructure Bootstrap" stage. For manual setup, you would need to create these resources first using AWS CLI or AWS Console.
+
+### **Step 3: Deploy Infrastructure**
+
+```bash
 # Review the deployment plan
 terraform plan
 
@@ -553,11 +537,11 @@ AWS resources incur costs even when not in use. Proper cleanup prevents unexpect
 
 echo "🧹 Starting infrastructure teardown..."
 
-# 1. Destroy Terraform infrastructure
+# 1. Destroy Terraform infrastructure (this removes most resources)
 cd Infrastructure
 terraform destroy -auto-approve
 
-# 2. Clean up ECR images
+# 2. Clean up ECR images (if not managed by Terraform)
 aws ecr list-images --repository-name jokes-app --query 'imageIds[*]' --output json | \
   jq '.[] | select(.imageTag != null) | .imageTag' | \
   xargs -I {} aws ecr batch-delete-image --repository-name jokes-app --image-ids imageTag={}
@@ -565,11 +549,11 @@ aws ecr list-images --repository-name jokes-app --query 'imageIds[*]' --output j
 # 3. Delete ECR repository
 aws ecr delete-repository --repository-name jokes-app --force
 
-# 4. Clean up S3 bucket (if empty)
+# 4. Clean up S3 bucket and DynamoDB table (Terraform state resources)
+
+# Note: These are created by GitHub Actions, not Terraform
 aws s3 rm s3://my-tf-state-bucket-rex-2025 --recursive
 aws s3api delete-bucket --bucket my-tf-state-bucket-rex-2025
-
-# 5. Delete DynamoDB table
 aws dynamodb delete-table --table-name my-tf-lock-table-rex-2025
 
 echo "✅ Teardown complete! All resources have been removed."
