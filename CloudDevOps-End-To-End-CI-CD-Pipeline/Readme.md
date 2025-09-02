@@ -270,11 +270,6 @@ git push origin main
 - Knowledge of Terraform basics
 - Understanding of CI/CD concepts
 
-### **Cost Estimation**
-- **Development**: ~$5-10/month
-- **Production**: ~$20-50/month (with auto-scaling)
-- **Free Tier**: First 12 months eligible for AWS Free Tier
-
 ---
 
 ## 🏗️ Infrastructure Deployment
