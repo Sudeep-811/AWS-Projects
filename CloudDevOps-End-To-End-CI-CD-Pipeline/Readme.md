@@ -297,13 +297,38 @@ cd Infrastructure
 
 # Initialize Terraform with S3 backend configuration
 terraform init \
-  -backend-config="bucket=my-tf-state-bucket-rex-2025" \
-  -backend-config="key=jokes-app/terraform.tfstate" \
+  -backend-config="bucket=YOUR_BUCKET_NAME" \
+  -backend-config="key=YOUR_APP_NAME/terraform.tfstate" \
   -backend-config="region=ap-south-1" \
-  -backend-config="dynamodb_table=my-tf-lock-table-rex-2025"
+  -backend-config="dynamodb_table=YOUR_TABLE_NAME"
 ```
 
 **Note**: The S3 bucket and DynamoDB table for Terraform state management are automatically created by the GitHub Actions workflow if they don't exist. This is handled in the CI/CD pipeline's "Infrastructure Bootstrap" stage. For manual setup, you would need to create these resources first using AWS CLI or AWS Console.
+
+🔑 Manual Workflow (semi-automated)
+
+Step 1: You manually create
+
+S3 bucket (for state)
+
+DynamoDB table (for state locking)
+
+Step 2: You run terraform init locally in VSCode with backend configs.
+
+Step 3: Terraform creates infrastructure and stores state remotely in that bucket.
+
+
+⚡ Fully Automated Workflow (via CI/CD like GitHub Actions)
+
+Here’s the catch:
+
+When you push to main, GitHub Actions runner will execute Terraform.
+
+But Terraform needs the backend bucket and DynamoDB table to exist first.
+
+Since Terraform cannot provision its own backend (chicken-and-egg problem), those resources must exist before Terraform init can succeed.
+
+For this use GitHub Actions workflow
 
 ### **Step 3: Deploy Infrastructure**
 
