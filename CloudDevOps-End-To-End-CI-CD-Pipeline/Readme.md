@@ -297,10 +297,10 @@ cd Infrastructure
 
 # Initialize Terraform with S3 backend configuration
 terraform init \
-  -backend-config="bucket=YOUR_BUCKET_NAME" \
-  -backend-config="key=YOUR_APP_NAME/terraform.tfstate" \
-  -backend-config="region=ap-south-1" \
-  -backend-config="dynamodb_table=YOUR_TABLE_NAME"
+  -backend-config="bucket=YOUR_BUCKET_NAME" \   #my-tf-state-bucket-rex-2025
+  -backend-config="key=YOUR_APP_NAME/terraform.tfstate" \  #jokes-app
+  -backend-config="region=ap-south-1" \  
+  -backend-config="dynamodb_table=YOUR_TABLE_NAME"  #my-tf-lock-table-rex-2025
 ```
 
 **Note**: The S3 bucket and DynamoDB table for Terraform state management are automatically created by the GitHub Actions workflow if they don't exist. This is handled in the CI/CD pipeline's "Infrastructure Bootstrap" stage. For manual setup, you would need to create these resources first using AWS CLI or AWS Console.
