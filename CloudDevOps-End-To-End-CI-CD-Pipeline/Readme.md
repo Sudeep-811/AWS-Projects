@@ -586,33 +586,8 @@ Cleans up everything
 
 ✅ No local execution needed. GitHub Actions handles it end-to-end.
 
-```bash
-#!/bin/bash
-# teardown.sh - Complete infrastructure cleanup
+[View the `destroy-all.sh` script](https://github.com/Sudeep-811/CloudDevOps-End-To-End-CI-CD-Pipeline/blob/4a0489e347101180385328759c3e021ee2dd2711/destroy-all.sh)
 
-echo "🧹 Starting infrastructure teardown..."
-
-# 1. Destroy Terraform infrastructure (this removes most resources)
-cd Infrastructure
-terraform destroy -auto-approve
-
-# 2. Clean up ECR images (if not managed by Terraform)
-aws ecr list-images --repository-name jokes-app --query 'imageIds[*]' --output json | \
-  jq '.[] | select(.imageTag != null) | .imageTag' | \
-  xargs -I {} aws ecr batch-delete-image --repository-name jokes-app --image-ids imageTag={}
-
-# 3. Delete ECR repository
-aws ecr delete-repository --repository-name jokes-app --force
-
-# 4. Clean up S3 bucket and DynamoDB table (Terraform state resources)
-
-# Note: These are created by GitHub Actions, not Terraform
-aws s3 rm s3://my-tf-state-bucket-rex-2025 --recursive
-aws s3api delete-bucket --bucket my-tf-state-bucket-rex-2025
-aws dynamodb delete-table --table-name my-tf-lock-table-rex-2025
-
-echo "✅ Teardown complete! All resources have been removed."
-```
 
 ### **Verification Steps**
 
