@@ -642,7 +642,6 @@ aws ce get-cost-and-usage \
 - **Security Groups**: 2 (ALB + ECS)
 - **IAM Roles**: 1 (least-privilege)
 - **Network Isolation**: Private subnets
-- **Image Scanning**: Enabled
 
 #### **Cost Analysis**
 - **Monthly Cost**: ~$25-40 (with auto-scaling)
@@ -661,7 +660,6 @@ aws ce get-cost-and-usage \
 - Modern, responsive design
 - Category-based joke filtering
 - Real-time statistics
-- Mobile-optimized interface
 
 #### **API Endpoints**
 - `/api/jokes/:category` - Get random jokes
@@ -669,11 +667,6 @@ aws ce get-cost-and-usage \
 - `/api/stats` - Application statistics
 - Health check endpoints
 
-#### **Admin Features**
-- Joke management (CRUD operations)
-- Category organization
-- User session tracking
-- Statistics dashboard
 
 </details>
 
@@ -711,7 +704,6 @@ terraform {
 **Approach**:
 - Implemented rolling deployments with ECS
 - Added health checks and readiness probes
-- Created blue-green deployment strategy
 
 **Solution**:
 ```yaml
