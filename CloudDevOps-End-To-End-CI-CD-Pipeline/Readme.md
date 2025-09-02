@@ -551,6 +551,41 @@ AWS resources incur costs even when not in use. Proper cleanup prevents unexpect
 
 ### **Complete Teardown Process**
 
+This project uses two branches to manage infrastructure with Terraform:
+
+main branch → 🚀 Provisions infrastructure and Runs Application (apply)
+
+destroy branch → 🗑️ Destroys infrastructure (destroy)
+
+-Switch to the destroy branch
+
+```
+git checkout destroy
+
+```
+Sync it with main (optional but recommended):
+
+```
+git merge main
+git push origin destroy
+```
+
+This triggers the Destroy workflow (destroy.yml) in GitHub Actions.
+
+The workflow runs destroy-all.sh which:
+
+-Purges all images from ECR
+
+-Runs terraform destroy -auto-approve
+
+-Deletes the S3 backend bucket (with versions)
+
+-Deletes the DynamoDB lock table
+
+Cleans up everything
+
+✅ No local execution needed. GitHub Actions handles it end-to-end.
+
 ```bash
 #!/bin/bash
 # teardown.sh - Complete infrastructure cleanup
